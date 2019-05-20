@@ -97,6 +97,9 @@ set list
 set foldmethod=indent
 set foldlevel=99
 
+" Update time for vim-gitgutter
+set updatetime=100
+
 """""" Auto formatting """"""
 augroup autoformat_settings
   autocmd FileType bzl AutoFormatBuffer buildifier
