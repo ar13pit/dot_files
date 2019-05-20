@@ -2,9 +2,11 @@
 
 ## neovim
 ### Dependencies
+System installation
 ```bash
-sudo apt-get install exuberant-ctags fonts-powerline
+sudo apt-get install neovim exuberant-ctags fonts-powerline
 ```
+Vim setup
 ```vim
 :PluginInstall
 ```
