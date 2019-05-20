@@ -144,7 +144,7 @@ let python_highlight_all=1
 syntax on
 
 " Easytags configuration
-set tags=./tags;,~/.vimtags
+set tags=~/.nvimtags
 " Sensible defaults
 let g:easytags_events = ['BufReadPost', 'BufWritePost']
 let g:easytags_async = 1
