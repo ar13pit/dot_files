@@ -99,6 +99,8 @@ set foldlevel=99
 
 " Update time for vim-gitgutter
 set updatetime=100
+" Sign column for vim-gitgutter
+set signcolumn=yes
 
 """""" Auto formatting """"""
 augroup autoformat_settings
