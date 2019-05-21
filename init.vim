@@ -167,7 +167,7 @@ let g:airline#extensions#tabline#enabled = 1
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Gitgutter configuration
-highlight GitGutterAdd ctermfg=2
-highlight GitGutterChange ctermfg=3
-highlight GitGutterDelete ctermfg=1
+highlight GitGutterAdd ctermfg=2 ctermbg=0
+highlight GitGutterChange ctermfg=3 ctermbg=0
+highlight GitGutterDelete ctermfg=1 ctermbg=0
 "let g:gitgutter_highlight_lines = 1
