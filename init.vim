@@ -20,6 +20,8 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 " Syntax check
 "Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale'
+
 " Tags
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
@@ -78,7 +80,7 @@ set softtabstop=4
 set shiftwidth=4
 set shiftround
 set expandtab
-set textwidth=79
+set textwidth=120
 set autoindent
 
 " Set default file format to unix
@@ -103,17 +105,18 @@ set updatetime=100
 set signcolumn=yes
 
 """""" Auto formatting """"""
-augroup autoformat_settings
-  autocmd FileType bzl AutoFormatBuffer buildifier
-  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
-  autocmd FileType dart AutoFormatBuffer dartfmt
-  autocmd FileType go AutoFormatBuffer gofmt
-  autocmd FileType gn AutoFormatBuffer gn
-  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
-  autocmd FileType java AutoFormatBuffer google-java-format
-  autocmd FileType python AutoFormatBuffer yapf
-  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
-augroup END
+"augroup autoformat_settings
+"  autocmd FileType bzl AutoFormatBuffer buildifier
+"  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+"  autocmd FileType dart AutoFormatBuffer dartfmt
+"  autocmd FileType go AutoFormatBuffer gofmt
+"  autocmd FileType gn AutoFormatBuffer gn
+"  autocmd FileType html,css,sass,scss,less,json AutoFormatBuffer js-beautify
+"  autocmd FileType java AutoFormatBuffer google-java-format
+"  autocmd FileType python AutoFormatBuffer yapf
+"  " Alternative: autocmd FileType python AutoFormatBuffer autopep8
+"augroup END
+map <leader>f :FormatCode
 
 """""" Key remaps """"""
 " Code folding
@@ -132,18 +135,12 @@ let NERDTreeIgnore=['\.pyc$', '\~$'] "Ignore files in NERDTree
 map <C-n> :NERDTreeToggle<CR>
 
 " Color scheme configuration
-"if has('gui_running')
-"  set background=dark
-"  colorscheme solarized
-"else
-"  colorscheme solarized
-"endif
-"call togglebg#map("<F5>")
 colorscheme slate
 
 " Syntax highlighting
 let python_highlight_all=1
 syntax on
+let g:ale_set_highlights = 0
 
 " Easytags configuration
 set tags=~/.nvimtags
