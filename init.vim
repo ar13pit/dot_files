@@ -174,3 +174,12 @@ highlight GitGutterAdd ctermfg=2 ctermbg=0
 highlight GitGutterChange ctermfg=3 ctermbg=0
 highlight GitGutterDelete ctermfg=1 ctermbg=0
 "let g:gitgutter_highlight_lines = 1
+
+" Screen splits
+set splitbelow
+set splitright
+" Not using the ALT key because of Terminator
+nnoremap <C-Up>     <C-W><C-K> " Move up
+nnoremap <C-Down>   <C-W><C-J> " Move down
+nnoremap <C-Left>   <C-W><C-H> " Move left
+nnoremap <C-Right>  <C-W><C-L> " Move right
