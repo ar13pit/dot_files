@@ -20,12 +20,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 " Syntax check
 "Plugin 'vim-syntastic/syntastic'
-Plugin 'w0rp/ale'
+Plugin 'dense-analysis/ale'
 
 " Tags
 Plugin 'xolox/vim-misc'
 Plugin 'xolox/vim-easytags'
 Plugin 'majutsushi/tagbar'
+
+" Fuzzy search tool for both shell and vim
+Plugin 'junegunn/fzf', {'do': './install --all'}
 
 " Remove extraneous whitespace when edit mode is exited
 "Plugin 'thirtythreeforty/lessspace.vim'
