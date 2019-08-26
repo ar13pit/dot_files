@@ -99,7 +99,7 @@ set number
 set list
 
 " Enable code folding
-set foldmethod=indent
+set foldmethod=syntax
 set foldlevel=99
 
 " Update time for vim-gitgutter
@@ -143,7 +143,10 @@ colorscheme slate
 " Syntax highlighting
 let python_highlight_all=1
 syntax on
+let g:ale_linters = { 'python': ['pylint'] }
 let g:ale_set_highlights = 0
+let g:ale_lint_on_text_changed = 'never'
+let g:ale_lint_on_enter = 0
 
 " Easytags configuration
 set tags=~/.nvimtags
