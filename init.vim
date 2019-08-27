@@ -2,33 +2,34 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.config/nvim/bundle/Vundle.vim
-call vundle#begin('~/.config/nvim/bundle')
-
-Plugin 'VundleVim/Vundle.vim'
+call plug#begin('~/.config/nvim/bundle')
 
 " Custom plugins...
 " Code folding
-Plugin 'tmhedberg/SimpylFold'
-" Ctrl-P - Fuzzy file search
-Plugin 'kien/ctrlp.vim'
-" Autocomplete for python
-Plugin 'Valloric/YouCompleteMe'
+Plug 'tmhedberg/SimpylFold'
+" Autocompletion
+Plug 'Shougo/deoplete.nvim', {'do': ':UpdateRemotePlugins'}
+Plug 'Shougo/neco-vim'
+Plug 'deoplete-plugins/deoplete-jedi'
 " File browsing
-Plugin 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+" Comment plugin
+Plug 'scrooloose/nerdcommenter'
 " Git plugin
-Plugin 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive'
+" Quotes/Braces completion
+Plug 'tpope/vim-surround'
 " Syntax check
-"Plugin 'vim-syntastic/syntastic'
-Plugin 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
 " Tags
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-easytags'
-Plugin 'majutsushi/tagbar'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
+Plug 'majutsushi/tagbar'
 
 " Fuzzy search tool for both shell and vim
-Plugin 'junegunn/fzf', {'do': './install --all'}
+Plug 'junegunn/fzf', {'do': './install --all'}
+Plug 'junegunn/fzf.vim'
 
 " Remove extraneous whitespace when edit mode is exited
 "Plugin 'thirtythreeforty/lessspace.vim'
@@ -47,24 +48,27 @@ Plugin 'junegunn/fzf', {'do': './install --all'}
 "Plugin 'LaTeX-Box-Team/LaTeX-Box'
 
 " Status bar mods
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'airblade/vim-gitgutter'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'airblade/vim-gitgutter'
 
 " Color schemes
-Plugin 'jnurmine/Zenburn'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'jnurmine/Zenburn'
+Plug 'altercation/vim-colors-solarized'
 
 " Tab completion
 "Plugin 'ervandew/supertab'
 
+" Multiple cursors
+Plug 'terryma/vim-multiple-cursors'
+
 " Google auto-format tools
-Plugin 'google/vim-maktaba'
-Plugin 'google/vim-codefmt'
-Plugin 'google/vim-glaive'
+Plug 'google/vim-maktaba'
+Plug 'google/vim-codefmt'
+Plug 'google/vim-glaive'
 
 " After all plugins...
-call vundle#end()
+call plug#end()
 call glaive#Install()
 filetype plugin indent on" Fix cursor issues
 
@@ -121,17 +125,11 @@ set signcolumn=yes
 "augroup END
 map <leader>f :FormatCode
 
-"""""" Key remaps """"""
-" Code folding
-nnoremap <space> za
-
-" Add Clang-format to nvim
-"map <C-K> :pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
-"imap <C-K> <c-o>:pyf /usr/share/vim/addons/syntax/clang-format.py<cr>
-
-" Ycm autocomplete customizations
-let g:ycm_autoclose_preview_window_after_completion=1
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" Deoplete autocompletion
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
+let g:deoplete#sources#jedi#enable_typeinfo = 0
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 
 " NERDTree configurations
 let NERDTreeIgnore=['\.pyc$', '\~$'] "Ignore files in NERDTree
@@ -178,6 +176,10 @@ highlight GitGutterDelete ctermfg=1 ctermbg=0
 " Screen splits
 set splitbelow
 set splitright
+
+"""""" Key remaps """"""
+" Code folding
+nnoremap <space> za
 " Not using the ALT key because of Terminator
 nnoremap <C-Up>     <C-W><C-K> " Move up
 nnoremap <C-Down>   <C-W><C-J> " Move down
