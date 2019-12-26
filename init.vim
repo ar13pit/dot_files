@@ -213,7 +213,7 @@ nnoremap <C-Right>  <C-W><C-L>
 function! Term()
     exec winheight(0)/4."split" | terminal
 endfunction
-nnoremap <expr> <leader>t ":call Term()\<CR>"
+nnoremap <expr> <C-t> ":call Term()\<CR>"
 
 
 """""""""""""""""""""""""""""""
