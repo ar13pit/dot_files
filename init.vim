@@ -28,24 +28,24 @@ Plug 'xolox/vim-easytags'
 Plug 'majutsushi/tagbar'
 
 " Fuzzy search tool for both shell and vim
-Plug 'junegunn/fzf', {'do': './install --all'}
+Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
 Plug 'junegunn/fzf.vim'
 
 " Remove extraneous whitespace when edit mode is exited
-"Plugin 'thirtythreeforty/lessspace.vim'
+"Plug 'thirtythreeforty/lessspace.vim'
 
 " Screen splitter.  Cool, but doesn't work with nvim.
-"Plugin 'ervandew/screen'
+"Plug 'ervandew/screen'
 
 " Neomake build tool (mapped below to <c-b>)
-"Plugin 'benekastah/neomake'
+"Plug 'benekastah/neomake'
 
 " EasyMotion - Allows <leader><leader>(b|e) to jump to (b)eginning or (end)
 " of words.
-"Plugin 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 
 " LaTeX editing
-"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+"Plug 'LaTeX-Box-Team/LaTeX-Box'
 
 " Status bar mods
 Plug 'vim-airline/vim-airline'
@@ -57,7 +57,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'altercation/vim-colors-solarized'
 
 " Tab completion
-"Plugin 'ervandew/supertab'
+"Plug 'ervandew/supertab'
 
 " Multiple cursors
 Plug 'terryma/vim-multiple-cursors'
@@ -66,6 +66,9 @@ Plug 'terryma/vim-multiple-cursors'
 Plug 'google/vim-maktaba'
 Plug 'google/vim-codefmt'
 Plug 'google/vim-glaive'
+
+" Editor config
+Plug 'editorconfig/editorconfig-vim'
 
 " After all plugins...
 call plug#end()
