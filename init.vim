@@ -198,3 +198,16 @@ nnoremap <C-Down>   <C-W><C-J>
 nnoremap <C-Left>   <C-W><C-H>
 " Move right
 nnoremap <C-Right>  <C-W><C-L>
+
+
+"""""""""""""""""""""""""""""""
+"      Terminal Settings
+"""""""""""""""""""""""""""""""
+augroup terminal_settings
+    autocmd TermOpen * setlocal nonumber norelativenumber
+    autocmd TermOpen * startinsert
+    autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+augroup END
+
+" Insert mode to normal mode
+tnoremap <Esc> <C-\><C-n>
