@@ -199,6 +199,12 @@ nnoremap <C-Left>   <C-W><C-H>
 " Move right
 nnoremap <C-Right>  <C-W><C-L>
 
+" Window split and terminal open shortcut
+function! Term()
+  exec winheight(0)/4."split" | terminal
+endfunction
+nnoremap <expr> <leader>t ":call Term()\<CR>"
+
 
 """""""""""""""""""""""""""""""
 "      Terminal Settings
