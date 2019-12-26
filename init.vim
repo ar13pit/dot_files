@@ -73,7 +73,8 @@ Plug 'editorconfig/editorconfig-vim'
 " After all plugins...
 call plug#end()
 call glaive#Install()
-filetype plugin indent on" Fix cursor issues
+" Fix cursor issues
+filetype plugin indent on
 
 
 """"""""""""""""""""""""""""""""""
@@ -136,9 +137,16 @@ let g:deoplete#sources#jedi#show_docstring = 1
 let g:deoplete#sources#jedi#enable_typeinfo = 0
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 
-" NERDTree configurations
+" NERDTree & Commenter configurations
 let NERDTreeIgnore=['\.pyc$', '\~$'] "Ignore files in NERDTree
-map <C-n> :NERDTreeToggle<CR>
+map <C-\> :NERDTreeToggle<CR>
+
+let g:NERDSpaceDelims = 1
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+let g:NERDToggleCheckAllLines = 1
+nmap <C-_> <leader>c<space>
+vmap <C-_> <leader>cs
 
 " Color scheme configuration
 colorscheme slate
