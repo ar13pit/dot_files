@@ -76,9 +76,11 @@ call glaive#Install()
 filetype plugin indent on" Fix cursor issues
 
 
-""""""" Other configuration """""""
-set guicursor:
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
+""""""""""""""""""""""""""""""""""
+"      Normal mode settings
+""""""""""""""""""""""""""""""""""
+" set guicursor:
+" let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 0
 
 " Python support
 " let g:loaded_python_provider=1
@@ -117,7 +119,7 @@ set signcolumn=yes
 """""" Auto formatting """"""
 "augroup autoformat_settings
 "  autocmd FileType bzl AutoFormatBuffer buildifier
-"  autocmd FileType c,cpp,proto,javascript AutoFormatBuffer clang-format
+"  autocmd FileType c,cpp,proto,javascript,cuda AutoFormatBuffer clang-format
 "  autocmd FileType dart AutoFormatBuffer dartfmt
 "  autocmd FileType go AutoFormatBuffer gofmt
 "  autocmd FileType gn AutoFormatBuffer gn
@@ -144,10 +146,12 @@ colorscheme slate
 " Syntax highlighting
 let python_highlight_all=1
 syntax on
-let g:ale_linters = { 'python': ['pylint'] }
+let g:ale_linters = { 'python': ['pylint', 'flake8'] }
 let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
+let g:ale_python_pylint_change_directory = 1
+let g:ale_python_flake8_change_directory = 1
 
 " Easytags configuration
 set tags=~/.nvimtags
@@ -183,6 +187,8 @@ set splitright
 """""" Key remaps """"""
 " Code folding
 nnoremap <space> za
+
+" Window movement remaps
 " Not using the ALT key because of Terminator
 nnoremap <C-Up>     <C-W><C-K> " Move up
 nnoremap <C-Down>   <C-W><C-J> " Move down
