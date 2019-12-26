@@ -13,6 +13,7 @@ Plug 'Shougo/neco-vim'
 Plug 'deoplete-plugins/deoplete-jedi'
 " File browsing
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'}
+Plug 'Xuyuanp/nerdtree-git-plugin'
 " Comment plugin
 Plug 'scrooloose/nerdcommenter'
 " Git plugin
@@ -23,8 +24,7 @@ Plug 'tpope/vim-surround'
 Plug 'dense-analysis/ale'
 
 " Tags
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+Plug 'ludovicchabant/vim-gutentags'
 Plug 'majutsushi/tagbar'
 
 " Fuzzy search tool for both shell and vim
@@ -168,14 +168,9 @@ let g:ale_lint_on_enter = 0
 let g:ale_python_pylint_change_directory = 1
 let g:ale_python_flake8_change_directory = 1
 
-" Easytags configuration
-set tags=~/.nvimtags
-" Sensible defaults
-let g:easytags_events = ['BufReadPost', 'BufWritePost']
-let g:easytags_async = 1
-let g:easytags_dynamic_files = 2
-let g:easytags_resolve_links = 1
-let g:easytags_suppress_ctags_warning = 1
+" Gutentags configuration
+set statusline+=%{gutentags#statusline()}
+let g:gutentags_cache_dir = '~/.nvimtags'
 
 " Tagbar settings -----
 " Open/close tagbar with \b
