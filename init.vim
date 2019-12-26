@@ -140,6 +140,13 @@ autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 " NERDTree & Commenter configurations
 let NERDTreeIgnore=['\.pyc$', '\~$'] "Ignore files in NERDTree
 map <C-\> :NERDTreeToggle<CR>
+map <A-\> :NERDTreeFocus<CR>
+augroup nerdtree_settings
+    " If only open window is NERDTree, then close it
+    autocmd BufEnter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " If more than one window and previous buffer was NERDTree, go back to it.
+    autocmd BufEnter * if bufname('#') =~# "^NERD_tree_" && winnr('$') > 1 | b# | endif
+augroup END
 
 let g:NERDSpaceDelims = 1
 let g:NERDCommentEmptyLines = 1
