@@ -230,3 +230,8 @@ augroup END
 
 " Insert mode to normal mode
 tnoremap <Esc> <C-\><C-n>
+
+" Allow usage of per project .vimrc file
+set exrc
+" Disallow the use of :autocmd, shell and write commands in local .vimrc files
+set secure
