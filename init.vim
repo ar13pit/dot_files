@@ -190,6 +190,9 @@ highlight GitGutterChange ctermfg=3 ctermbg=0
 highlight GitGutterDelete ctermfg=1 ctermbg=0
 "let g:gitgutter_highlight_lines = 1
 
+" Editorconfig configuration
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
+
 " Screen splits
 set splitbelow
 set splitright
