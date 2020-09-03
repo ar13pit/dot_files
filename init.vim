@@ -70,6 +70,9 @@ Plug 'google/vim-glaive'
 " Editor config
 Plug 'editorconfig/editorconfig-vim'
 
+" Shell formatter
+Plug 'z0mbix/vim-shfmt', { 'for': 'sh' }
+
 " After all plugins...
 call plug#end()
 call glaive#Install()
@@ -218,6 +221,10 @@ function! Term()
 endfunction
 nnoremap <expr> <C-t> ":call Term()\<CR>"
 
+" Fugitive Conflict Resolution
+nnoremap <leader>gd :Gvdiff<CR>
+nnoremap gdh :diffget //2<CR>
+nnoremap gdl :diffget //3<CR>
 
 """""""""""""""""""""""""""""""
 "      Terminal Settings
@@ -231,6 +238,8 @@ augroup END
 " Insert mode to normal mode
 tnoremap <Esc> <C-\><C-n>
 
+set modelines=0
+set nomodeline
 " Allow usage of per project .vimrc file
 set exrc
 " Disallow the use of :autocmd, shell and write commands in local .vimrc files
