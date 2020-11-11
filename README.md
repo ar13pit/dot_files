@@ -4,7 +4,7 @@
 ### Dependencies
 System installation
 ```bash
-sudo apt-get install neovim universal-ctags fonts-powerline
+sudo apt-get install neovim universal-ctags fonts-powerline libmsgpack-dev
 ```
 
 NVim setup
