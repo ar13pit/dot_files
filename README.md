@@ -4,7 +4,7 @@
 ### Dependencies
 System installation
 ```bash
-sudo apt-get install neovim universal-ctags fonts-powerline libmsgpack-dev editorconfig shellcheck
+sudo apt-get install neovim universal-ctags fonts-powerline libmsgpack-dev editorconfig shellcheck clang-format clang-tidy
 pip3 install --user --upgrade jedi
 ```
 
