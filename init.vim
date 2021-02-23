@@ -164,7 +164,8 @@ colorscheme slate
 " Syntax highlighting
 let python_highlight_all=1
 syntax on
-let g:ale_linters = { 'python': ['pylint', 'flake8'] }
+let g:ale_linters = { 'python': ['pylint', 'flake8'], 'cpp': ['clangtidy'], 'c': ['clangtidy'] }
+let g:ale_fixers = { 'cpp': ['clang-format'], 'c': ['clang-format'] }
 let g:ale_set_highlights = 0
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_enter = 0
@@ -184,6 +185,7 @@ nmap <silent> <leader>b :TagbarToggle<CR>
 " Airline configuration
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 "let g:airline#extensions#tabline#left_sep = ' '
 "let g:airline#extensions#tabline#left_alt_sep = '|'
 
